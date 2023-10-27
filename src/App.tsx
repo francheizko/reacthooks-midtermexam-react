@@ -3,31 +3,36 @@ import React, { useState } from 'react';
 function App() {
   const [groceryList, setGroceryList] = useState<{ item: string; purchased: boolean }[]>(
     []
-  ); // Use an array of objects to track both the item and its purchase status
-  const [groceryItem, setGroceryItem] = useState<string>(''); // Provide an explicit type annotation for the state
+  );
+  const [groceryItem, setGroceryItem] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setGroceryItem(e.target.value); // Update the groceryItem state when input changes
+    setGroceryItem(e.target.value);
   }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (groceryItem.trim() !== '') {
-      setGroceryList([...groceryList, { item: groceryItem, purchased: false }]); // Add the current item to the grocery list with purchased status
-      setGroceryItem(''); // Clear the input field
+      setGroceryList([...groceryList, { item: groceryItem, purchased: false }]);
+      setGroceryItem('');
+      showConfirmation(); 
     }
   }
 
   const handleDelete = (index: number) => {
     const updatedList = [...groceryList];
-    updatedList.splice(index, 1); // Remove the item at the specified index
+    updatedList.splice(index, 1);
     setGroceryList(updatedList);
   }
 
   const handleCheckbox = (index: number) => {
     const updatedList = [...groceryList];
-    updatedList[index].purchased = !updatedList[index].purchased; // Toggle the purchased status
+    updatedList[index].purchased = !updatedList[index].purchased;
     setGroceryList(updatedList);
+  }
+
+  const showConfirmation = () => {
+    window.alert('Item added to the basket. Enjoy your shopping!'); 
   }
 
   return (
