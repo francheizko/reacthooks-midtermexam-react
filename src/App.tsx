@@ -1,23 +1,35 @@
-import { useState } from 'react'
+import React from "react"
 
 function App() {
 
-  const [count, setCount] = useState(0)
-
+ 
   return (
-    <div className="App">
-      <p>Count is: {count}</p>
+    <section className='section-center'>
+    <form className='grocery-form' >
+    
 
-      <div>
-        <button onClick={() => setCount(count+1)}>Add 1</button>
-        <button onClick={() => setCount(count-1)}>Decrease 1</button>
-
-        <button onClick={() => setCount(count+10)}>Add 10</button>
-        <button onClick={() => setCount(count-10)}>Decrease 10</button>
-
-        <button onClick={() => setCount(0)}>Reset count</button>
+      <h3>grocery bud</h3>
+      <div className='form-control'>
+        <input
+          type='text'
+          className='grocery'
+          placeholder='e.g. eggs'
+        
+        />
+        <button type='submit' className='submit-btn'>
+       
+        </button>
       </div>
-    </div>
+    </form>
+ 
+      <div className='grocery-container'>
+      
+        <button className='clear-btn' >
+          clear items
+        </button>
+      </div>
+    
+  </section>
   )
 }
 
