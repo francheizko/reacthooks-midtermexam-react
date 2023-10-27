@@ -6,6 +6,8 @@ Variables
 
 :root {
   /* dark shades of primary color*/
+  --primary-800: #155e75;
+  --primary-500: #06b6d4;
   --clr-primary-1: hsl(205, 86%, 17%);
   --clr-primary-2: hsl(205, 77%, 27%);
   --clr-primary-3: hsl(205, 72%, 37%);
@@ -87,7 +89,7 @@ h2 {
   font-size: 2rem;
 }
 h3 {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 h4 {
   font-size: 0.875rem;
@@ -209,7 +211,7 @@ Grocery List
   border-bottom-left-radius: var(--radius);
   border-color: transparent;
   font-size: 1rem;
-  flex: 1 0 auto;
+  flex: 0 0 20rem;
   color: var(--clr-grey-5);
 }
 .grocery::placeholder {
@@ -217,23 +219,22 @@ Grocery List
   color: var(--clr-grey-5);
 }
 .submit-btn {
-  background: var(--clr-primary-8);
+  background: var(--primary-500);
   border-color: transparent;
   flex: 0 0 5rem;
-  display: grid;
+  display:flexbox;
   align-items: center;
-  padding: 0.25rem;
   text-transform: capitalize;
-  letter-spacing: 2px;
   border-top-right-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
   cursor: pointer;
   content: var(--clr-primary-5);
   transition: var(--transition);
   font-size: 0.85rem;
+  color: white;
 }
 .submit-btn:hover {
-  background: var(--clr-primary-5);
+  background: var(--primary-800);
   color: var(--clr-white);
 }
 
@@ -247,7 +248,7 @@ Grocery List
   justify-content: space-between;
   margin-bottom: 0.5rem;
   transition: var(--transition);
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 3.25rem;
   border-radius: var(--radius);
   text-transform: capitalize;
 }
@@ -259,6 +260,7 @@ Grocery List
   color: var(--clr-grey-5);
 }
 .title {
+  margin-right: 10;
   margin-bottom: 0;
   color: var(--clr-grey-1);
   letter-spacing: 2px;
@@ -266,12 +268,19 @@ Grocery List
 }
 .edit-btn,
 .delete-btn {
-  background: transparent;
+  background: black;
   border-color: transparent;
+  align-items: center;
+  text-transform: capitalize;
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
   cursor: pointer;
-  font-size: 0.7rem;
-  margin: 0 0.15rem;
+  content: var(--clr-primary-5);
   transition: var(--transition);
+  font-size: 0.80rem;
+  letter-spacing: 1px;
 }
 .edit-btn {
   color: var(--clr-green-light);
@@ -280,10 +289,10 @@ Grocery List
   color: var(--clr-green-dark);
 }
 .delete-btn {
-  color: var(--clr-red-light);
+  color: white;
 }
 .delete-btn:hover {
-  color: var(--clr-red-dark);
+  background-color: red;
 }
 .clear-btn {
   text-transform: capitalize;
@@ -303,4 +312,11 @@ Grocery List
 }
 .clear-btn:hover {
   color: var(--clr-red-dark);
+}
+.grocery-item.purchased .title {
+  text-decoration: line-through;
+}
+
+.grocery-item div input {
+  margin-right: 15px; /* Add space between the checkbox and item name */
 }
