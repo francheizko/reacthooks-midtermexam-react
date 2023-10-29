@@ -165,6 +165,12 @@ main {
 Grocery List
 ===============
 */
+.header1 {
+ font-size: 1.6rem;
+ color: black;
+text-align: center;
+ 
+}
 .section-center {
   background: var(--clr-white);
   border-radius: var(--radius);
