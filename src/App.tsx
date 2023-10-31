@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
+  const storedGroceryList = localStorage.getItem('groceryList');
+  const initialGroceryList = storedGroceryList ? JSON.parse(storedGroceryList) : [];
+
   const [groceryList, setGroceryList] = useState<{ item: string; purchased: boolean }[]>(
-    []
+    initialGroceryList
   );
   const [groceryItem, setGroceryItem] = useState<string>('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setGroceryItem(e.target.value);
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (groceryItem.trim() !== '') {
       setGroceryList([...groceryList, { item: groceryItem, purchased: false }]);
@@ -74,6 +77,10 @@ function App() {
       theme: "light",
     });
   }
+
+  useEffect(() => {
+    localStorage.setItem('groceryList', JSON.stringify(groceryList));
+  }, [groceryList]);
 
   return (
     <section className='section-center'>
